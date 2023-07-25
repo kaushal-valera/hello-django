@@ -1,0 +1,70 @@
+<!-- section-header.// -->
+{% load static %}
+
+<header class="section-header">
+<nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
+<div class="container">
+  <div class="collapse navbar-collapse" id="navbarTop4">
+    <ul class="navbar-nav">
+    <li><a href="" class="nav-link"> English </a></li>
+    <li><a href="" class="nav-link"> INR </a></li>
+  </ul> <!-- list-inline //  -->
+  </div> <!-- navbar-collapse .// -->
+</div> <!-- container //  -->
+</nav>
+</header> <!-- section-header.// -->
+
+
+
+<nav class="navbar navbar-expand-md bg-white navbar-white border-bottom border-top">
+    <div class="container">
+
+        <a href="{% url 'home' %}" class="navbar-brand"> <img class="logo" src="{% static './images/logohello.png' %}"> </a>
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#mynav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mynav">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown">
+              <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"> All Category </a>
+
+                <ul class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'store' %}"> All Products </a>
+                  {% for category in links %}
+                  <a class="dropdown-item" href="{{ category.get_url }}"> {{category.category_name}} </a>
+                  {% endfor %}
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href="{% url 'store'%}" class="nav-link"> Store </a></li>
+
+            <li class="nav-item">
+            <form action="#" class="search"> <!-- search-wrap .start// -->
+                <div class="input-group w-100">
+                    <input type="text" class="form-control" style="width:60%;" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-search"> Search</i>
+                      </button>
+                    </div>
+                </div>
+            </form> <!-- search-wrap .end// -->
+            </li>
+
+            <li class="nav-item"> <a href="{% url 'cart' %}" class="nav-link">
+                                    Cart <i class="fa fa-shopping-cart">  </i> <span class="btn btn-danger btn-sm">{{ cart_count }}</span>
+                                  </a>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link"> Sign In </a></li>
+            <li class="nav-item"><a href="#" class="nav-link"> Log In </a></li>
+            <li class="nav-item"><a href="#" class="nav-link"> Welcome Guest </a></li>
+
+        </ul>
+        </div>
+
+    </div>
+</nav>
